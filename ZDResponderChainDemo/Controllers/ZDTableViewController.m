@@ -12,6 +12,7 @@
 
 @interface ZDTableViewController () <UITableViewDataSource, UITableViewDelegate>
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
+@property (nonatomic, strong) NSDictionary <NSString *, NSInvocation *> *eventStrategy;
 @end
 
 @implementation ZDTableViewController
@@ -26,9 +27,25 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)deliverEventWithName:(NSString *)eventName parameters:(NSDictionary *)paramsDict {
-    NSLog(@"event：%@", eventName);
-    NSLog(@"参数：%@", paramsDict);
+- (void)deliverEventWithName:(NSString *)eventName parameters:(NSDictionary *)paramsDict {    
+    NSInvocation *invocation = self.eventStrategy[eventName];
+    [invocation setArgument:&paramsDict atIndex:2];
+    [invocation invoke];
+}
+
+- (void)didSelecteCell:(NSDictionary *)params {
+    NSLog(@"点击的tableviewCell：%@", params[@"cell"]);
+}
+
+- (void)hello:(NSDictionary *)paramsDict {
+    NSLog(@"hello %@", paramsDict[@"name"]);
+}
+
+- (NSInvocation *)setupInvocationWithSelector:(SEL)selector {
+    NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:[self methodSignatureForSelector:selector]];
+    [invocation setTarget:self];
+    [invocation setSelector:selector];
+    return invocation;
 }
 
 #pragma mark - UITableViewDatasource && UITableViewDelegate
@@ -49,7 +66,15 @@
 
 #pragma mark - Property
 
-
+- (NSDictionary <NSString *, NSInvocation *> *)eventStrategy {
+    if (_eventStrategy == nil) {
+        _eventStrategy = @{
+                           NSStringFromSelector(@selector(tableView:didSelectRowAtIndexPath:)) : [self setupInvocationWithSelector:@selector(didSelecteCell:)],
+                           @"hello:" : [self setupInvocationWithSelector:@selector(hello:)]
+                           };
+    }
+    return _eventStrategy;
+}
 
 /*
 #pragma mark - Navigation

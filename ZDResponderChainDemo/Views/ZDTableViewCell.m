@@ -25,12 +25,17 @@
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+    if (!selected) return;
+    NSString *selectorString = NSStringFromSelector(@selector(tableView:didSelectRowAtIndexPath:));
+    [self deliverEventWithName:selectorString parameters:@{@"cell" : self}];
 }
 
 - (IBAction)sendEvent:(UIButton *)sender {
-    
-    [self deliverEventWithName:@"hello:" parameters:@{@"name" : @"符现超"}];
+    [self deliverEventWithName:@"hello:" parameters:@{@"name" : @"Zero.D.Saber"}];
 }
 
+- (void)privateMethod:(NSString *)string {
+    self.label.text = string;
+}
 
 @end
