@@ -9,6 +9,7 @@
 #import "ZDTableViewController.h"
 #import "ZDTableViewCell.h"
 #import "UIResponder+ZDRouter.h"
+#import "NSObject+ZDTools.h"
 
 @interface ZDTableViewController () <UITableViewDataSource, UITableViewDelegate>
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
@@ -27,10 +28,17 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)deliverEventWithName:(NSString *)eventName parameters:(NSDictionary *)paramsDict {    
+- (void)deliverEventWithName:(NSString *)eventName parameters:(NSDictionary *)paramsDict {
+    void(^cellBlock)(NSString *) = paramsDict[@"block"];
+    if (cellBlock) {
+        cellBlock([NSString stringWithFormat:@"%@", [NSDate date]]);
+    }
+    
     NSInvocation *invocation = self.eventStrategy[eventName];
     [invocation setArgument:&paramsDict atIndex:2];
     [invocation invoke];
+    id resultValue = [self zd_getReturnFromInvocation:invocation withSigature:[invocation.target methodSignatureForSelector:invocation.selector]];
+    NSLog(@"%@", resultValue);
 }
 
 - (void)didSelecteCell:(NSDictionary *)params {

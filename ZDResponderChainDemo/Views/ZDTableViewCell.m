@@ -31,7 +31,12 @@
 }
 
 - (IBAction)sendEvent:(UIButton *)sender {
-    [self deliverEventWithName:@"hello:" parameters:@{@"name" : @"Zero.D.Saber"}];
+    void(^callback)(NSString *) = ^(NSString *newText){
+        self.label.text = newText;
+    };
+    
+    [self deliverEventWithName:@"hello:" parameters:@{@"name" : @"Zero.D.Saber",
+                                                      @"block" : callback}];
 }
 
 - (void)privateMethod:(NSString *)string {

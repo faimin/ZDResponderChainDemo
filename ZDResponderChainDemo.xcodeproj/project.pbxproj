@@ -18,6 +18,7 @@
 		DA7498B31F2B1D96004BE5FF /* ZDTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA7498B11F2B1D96004BE5FF /* ZDTableViewController.m */; };
 		DA7498B71F2B1D9E004BE5FF /* ZDTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DA7498B61F2B1D9E004BE5FF /* ZDTableViewCell.m */; };
 		DA7498BB1F2B1DCF004BE5FF /* UIResponder+ZDRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = DA7498BA1F2B1DCF004BE5FF /* UIResponder+ZDRouter.m */; };
+		DA7498C11F2C28C9004BE5FF /* NSObject+ZDTools.m in Sources */ = {isa = PBXBuildFile; fileRef = DA7498C01F2C28C9004BE5FF /* NSObject+ZDTools.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,8 @@
 		DA7498B61F2B1D9E004BE5FF /* ZDTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZDTableViewCell.m; sourceTree = "<group>"; };
 		DA7498B91F2B1DCF004BE5FF /* UIResponder+ZDRouter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIResponder+ZDRouter.h"; sourceTree = "<group>"; };
 		DA7498BA1F2B1DCF004BE5FF /* UIResponder+ZDRouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIResponder+ZDRouter.m"; sourceTree = "<group>"; };
+		DA7498BF1F2C28C9004BE5FF /* NSObject+ZDTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+ZDTools.h"; sourceTree = "<group>"; };
+		DA7498C01F2C28C9004BE5FF /* NSObject+ZDTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+ZDTools.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +178,8 @@
 			children = (
 				DA7498B91F2B1DCF004BE5FF /* UIResponder+ZDRouter.h */,
 				DA7498BA1F2B1DCF004BE5FF /* UIResponder+ZDRouter.m */,
+				DA7498BF1F2C28C9004BE5FF /* NSObject+ZDTools.h */,
+				DA7498C01F2C28C9004BE5FF /* NSObject+ZDTools.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -319,6 +324,7 @@
 				DA74987C1F2B1C9F004BE5FF /* main.m in Sources */,
 				DA7498B31F2B1D96004BE5FF /* ZDTableViewController.m in Sources */,
 				DA7498BB1F2B1DCF004BE5FF /* UIResponder+ZDRouter.m in Sources */,
+				DA7498C11F2C28C9004BE5FF /* NSObject+ZDTools.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -554,6 +560,7 @@
 				DA7498A61F2B1C9F004BE5FF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DA7498A71F2B1C9F004BE5FF /* Build configuration list for PBXNativeTarget "ZDResponderChainDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -562,6 +569,7 @@
 				DA7498A91F2B1C9F004BE5FF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DA7498AA1F2B1C9F004BE5FF /* Build configuration list for PBXNativeTarget "ZDResponderChainDemoUITests" */ = {
 			isa = XCConfigurationList;
@@ -570,6 +578,7 @@
 				DA7498AC1F2B1C9F004BE5FF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
