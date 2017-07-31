@@ -35,8 +35,11 @@
         self.label.text = newText;
     };
     
-    [self deliverEventWithName:@"hello:" parameters:@{@"name" : @"Zero.D.Saber",
-                                                      @"block" : callback}];
+    [self deliverEventWithName:@"hello:"
+                    parameters:@{
+                                 @"name" : @"Zero.D.Saber",
+                                 @"block" : callback
+                                 }];
 }
 
 - (void)privateMethod:(NSString *)string {

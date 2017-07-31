@@ -8,8 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface UIResponder (ZDRouter)
 
-- (void)deliverEventWithName:(NSString *)eventName parameters:(NSDictionary *)paramsDict;
+- (void)deliverEventWithName:(NSString *)eventName
+                  parameters:(NSDictionary *_Nullable)paramsDict;
 
 @end
+
+NS_ASSUME_NONNULL_END

@@ -8,9 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface NSObject (ZDTools)
 
 // refer YYKit
-- (id)zd_getReturnFromInvocation:(NSInvocation *)invocation withSigature:(NSMethodSignature *)sig;
+- (id)zd_getReturnFromInvocation:(NSInvocation *)invocation
+                    withSigature:(NSMethodSignature *)sig;
 
 @end
+
+NS_ASSUME_NONNULL_END
